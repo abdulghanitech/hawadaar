@@ -59,7 +59,7 @@ Your AC remote is never where you left it, and the MirAIe app is buried on your 
      ```
 3. Click the AC icon in the menu bar and sign in with the mobile number (or email) and password you use in the MirAIe app.
 
-Hawadaar checks for new versions once a day and shows an **Update** button when one is out.
+Hawadaar checks for new versions once a day. When one is out, click **Update** in the panel: it downloads, verifies and installs itself, then restarts. No need to download it again.
 
 **Requirements:** macOS 14 Sonoma or later, and an AC set up in the **MirAIe** app.
 
