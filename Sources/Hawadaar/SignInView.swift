@@ -1,4 +1,4 @@
-import AirBarCore
+import HawadaarCore
 import SwiftUI
 
 struct SignInView: View {

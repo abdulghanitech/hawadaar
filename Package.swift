@@ -2,15 +2,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "AirBar",
+    name: "Hawadaar",
     platforms: [.macOS(.v14)],
     products: [
-        .executable(name: "AirBar", targets: ["AirBar"]),
-        .library(name: "AirBarCore", targets: ["AirBarCore"]),
+        .executable(name: "Hawadaar", targets: ["Hawadaar"]),
+        .library(name: "HawadaarCore", targets: ["HawadaarCore"]),
     ],
     targets: [
-        .target(name: "AirBarCore"),
-        .executableTarget(name: "AirBar", dependencies: ["AirBarCore"]),
-        .testTarget(name: "AirBarCoreTests", dependencies: ["AirBarCore"]),
+        .target(name: "HawadaarCore"),
+        .executableTarget(name: "Hawadaar", dependencies: ["HawadaarCore"]),
+        .testTarget(name: "HawadaarCoreTests", dependencies: ["HawadaarCore"]),
     ]
 )

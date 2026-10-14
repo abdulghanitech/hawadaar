@@ -1,6 +1,6 @@
 import Foundation
 
-/// Encoding and decoding for the subset of MQTT 3.1.1 that AirBar needs:
+/// Encoding and decoding for the subset of MQTT 3.1.1 that Hawadaar needs:
 /// CONNECT, SUBSCRIBE, PUBLISH (QoS 0), PINGREQ and DISCONNECT.
 public enum MQTTPacket {
     public static let pingRequest = Data([0xC0, 0x00])

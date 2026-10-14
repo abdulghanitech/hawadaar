@@ -3,7 +3,7 @@ import Security
 
 /// Stores the MirAIe username and password in the login Keychain.
 public enum Keychain {
-    private static let service = "AirBar.MirAIe"
+    private static let service = "Hawadaar.MirAIe"
     private static let account = "credentials"
 
     public static func save(username: String, password: String) {

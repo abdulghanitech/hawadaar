@@ -33,7 +33,10 @@ let rounded = { (size: CGFloat, weight: NSFont.Weight) -> NSFont in
     let base = NSFont.systemFont(ofSize: size, weight: weight)
     return base.fontDescriptor.withDesign(.rounded).flatMap { NSFont(descriptor: $0, size: size) } ?? base
 }
-text("AirBar", font: rounded(96, .semibold), color: .white, at: NSPoint(x: 76, y: 290))
+text("Hawadaar", font: rounded(92, .semibold), color: .white, at: NSPoint(x: 76, y: 290))
+// The name in Urdu script, beside the title.
+text("ہوادار", font: .systemFont(ofSize: 44, weight: .regular),
+     color: NSColor(red: 1.0, green: 0.68, blue: 0.40, alpha: 1), at: NSPoint(x: 545, y: 318))
 let tagline = NSFont.systemFont(ofSize: 34, weight: .regular)
 let dim = NSColor(white: 1, alpha: 0.78)
 text("Control your MirAIe air conditioner", font: tagline, color: dim, at: NSPoint(x: 80, y: 232))
@@ -42,7 +45,7 @@ text("Free & open source  ·  Native SwiftUI  ·  macOS 14+", font: .systemFont(
      color: NSColor(red: 0.45, green: 0.68, blue: 1.0, alpha: 1), at: NSPoint(x: 80, y: 110))
 
 // The panel screenshot (with its window shadow), scaled to fit the right side.
-if let shot = NSImage(contentsOf: docs.appendingPathComponent("screenshot.png")) {
+if let shot = NSImage(contentsOf: docs.appendingPathComponent("panel.png")) {
     let height: CGFloat = 600
     let width = shot.size.width / shot.size.height * height
     shot.draw(in: NSRect(x: 1280 - width - 40, y: 20, width: width, height: height))

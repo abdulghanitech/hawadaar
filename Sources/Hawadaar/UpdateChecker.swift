@@ -1,4 +1,4 @@
-import AirBarCore
+import HawadaarCore
 import AppKit
 
 /// Checks GitHub Releases for a newer version once a day. Updating stays manual:
@@ -12,8 +12,8 @@ final class UpdateChecker: ObservableObject {
 
     @Published private(set) var available: Release?
 
-    /// "owner/repo", from the AirBarRepository key in Info.plist.
-    private let repository = Bundle.main.object(forInfoDictionaryKey: "AirBarRepository") as? String
+    /// "owner/repo", from the HawadaarRepository key in Info.plist.
+    private let repository = Bundle.main.object(forInfoDictionaryKey: "HawadaarRepository") as? String
     private let interval: TimeInterval = 24 * 60 * 60
     private var timer: Timer?
 
@@ -47,7 +47,7 @@ final class UpdateChecker: ObservableObject {
             UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastUpdateCheck")
             available = latest > current ? Release(version: latest, url: page) : nil
             if userInitiated && available == nil {
-                alert("AirBar is up to date", "You're running the latest version, \(current).")
+                alert("Hawadaar is up to date", "You're running the latest version, \(current).")
             }
         } catch {
             if userInitiated { alert("Couldn't check for updates", "Check your internet connection and try again.") }

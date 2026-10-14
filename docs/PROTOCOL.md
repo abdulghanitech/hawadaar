@@ -1,6 +1,6 @@
 # MirAIe protocol notes
 
-How AirBar talks to MirAIe ACs. Unofficial and observed from the community clients credited in the README, so it may change.
+How Hawadaar talks to MirAIe ACs. Unofficial and observed from the community clients credited in the README, so it may change.
 
 ## REST
 

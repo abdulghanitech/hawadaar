@@ -1,4 +1,4 @@
-// Renders Resources/AppIcon.icns: an indoor AC unit with airflow on a dark gradient tile.
+// Renders Resources/AppIcon.icns: an indoor AC unit with a breeze below it, on a dark gradient tile.
 // Usage: swift scripts/make-icon.swift
 import AppKit
 
@@ -23,18 +23,26 @@ func render(size: CGFloat) -> Data {
     NSColor(red: 0.35, green: 0.85, blue: 0.45, alpha: 1).setFill()
     NSBezierPath(ovalIn: NSRect(x: 730 * s, y: 680 * s, width: 22 * s, height: 22 * s)).fill()
 
-    // Airflow fanning out below, cool blue to warm orange.
-    let colors = [NSColor(red: 0.30, green: 0.60, blue: 1.0, alpha: 1), NSColor(red: 1.0, green: 0.62, blue: 0.28, alpha: 1)]
-    for index in 0..<5 {
-        let t = CGFloat(index) / 4
-        let x = (330 + t * 364) * s
-        let flow = NSBezierPath()
-        flow.lineWidth = 34 * s
-        flow.lineCapStyle = .round
-        flow.move(to: NSPoint(x: x, y: 500 * s))
-        flow.line(to: NSPoint(x: x + (t - 0.5) * 150 * s, y: 250 * s))
+    // A breeze below the unit: three soft waves drifting sideways, cool blue to warm orange.
+    let colors = [NSColor(red: 0.36, green: 0.66, blue: 1.0, alpha: 1), NSColor(red: 1.0, green: 0.64, blue: 0.32, alpha: 1)]
+    for index in 0..<3 {
+        let t = CGFloat(index) / 2
+        let y = (470 - CGFloat(index) * 105) * s
+        let start = (250 + CGFloat(index) * 40) * s
+        let end = (770 - CGFloat(index) * 70) * s
+        let span = end - start
+        let wave = NSBezierPath()
+        wave.lineWidth = 38 * s
+        wave.lineCapStyle = .round
+        wave.move(to: NSPoint(x: start, y: y))
+        wave.curve(to: NSPoint(x: start + span * 0.5, y: y),
+                   controlPoint1: NSPoint(x: start + span * 0.17, y: y + 60 * s),
+                   controlPoint2: NSPoint(x: start + span * 0.33, y: y + 60 * s))
+        wave.curve(to: NSPoint(x: end, y: y),
+                   controlPoint1: NSPoint(x: start + span * 0.67, y: y - 60 * s),
+                   controlPoint2: NSPoint(x: start + span * 0.83, y: y - 60 * s))
         colors[0].blended(withFraction: t, of: colors[1])!.setStroke()
-        flow.stroke()
+        wave.stroke()
     }
 
     image.unlockFocus()

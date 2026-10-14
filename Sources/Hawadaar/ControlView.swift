@@ -1,4 +1,4 @@
-import AirBarCore
+import HawadaarCore
 import ServiceManagement
 import SwiftUI
 
@@ -185,7 +185,7 @@ struct ControlView: View {
                         .foregroundStyle(Palette.accent)
                 }
                 .buttonStyle(.plain)
-                .help("A new version of AirBar is available")
+                .help("A new version of Hawadaar is available")
             }
             Menu {
                 Toggle("Display Light", isOn: Binding(get: { status.display }, set: { store.send(.display($0)) }))
@@ -200,14 +200,14 @@ struct ControlView: View {
                 Button("Open Connection Log") { NSWorkspace.shared.open(ConnectionLog.url) }
                     .disabled(!FileManager.default.fileExists(atPath: ConnectionLog.url.path))
                 Divider()
-                Button("About AirBar \(About.version)") { About.show() }
+                Button("About Hawadaar \(About.version)") { About.show() }
                 if let release = updates.available {
-                    Button("Download AirBar \(release.version.description)…") { NSWorkspace.shared.open(release.url) }
+                    Button("Download Hawadaar \(release.version.description)…") { NSWorkspace.shared.open(release.url) }
                 } else {
                     Button("Check for Updates…") { Task { await updates.check(userInitiated: true) } }
                 }
                 Button("Sign Out") { store.signOut() }
-                Button("Quit AirBar") { NSApp.terminate(nil) }
+                Button("Quit Hawadaar") { NSApp.terminate(nil) }
             } label: {
                 Image(systemName: "ellipsis.circle")
             }

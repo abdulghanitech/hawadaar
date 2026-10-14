@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import AirBarCore
+@testable import HawadaarCore
 
 struct MQTTPacketTests {
     @Test func connectPacket() {

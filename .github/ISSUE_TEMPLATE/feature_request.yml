@@ -1,11 +1,11 @@
 name: Feature request
-description: Suggest an idea for AirBar
+description: Suggest an idea for Hawadaar
 labels: [enhancement]
 body:
   - type: textarea
     id: idea
     attributes:
-      label: What would you like AirBar to do?
+      label: What would you like Hawadaar to do?
     validations:
       required: true
   - type: input

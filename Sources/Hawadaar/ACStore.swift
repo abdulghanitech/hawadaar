@@ -1,4 +1,4 @@
-import AirBarCore
+import HawadaarCore
 import AppKit
 
 @MainActor
@@ -24,7 +24,7 @@ final class ACStore: ObservableObject {
     private var session: MirAIeAPI.Session?
     private var homeId = ""
     private let mqtt = MQTTClient(host: MirAIeAPI.mqttHost, port: MirAIeAPI.mqttPort)
-    private let clientId = "airbar-\(UUID().uuidString.prefix(8).lowercased())"
+    private let clientId = "hawadaar-\(UUID().uuidString.prefix(8).lowercased())"
     private var reconnectTask: Task<Void, Never>?
 
     init() {
@@ -166,18 +166,18 @@ final class ACStore: ObservableObject {
         return data.map { String(decoding: $0, as: UTF8.self) } ?? "[]"
     }
 
-    /// With `defaults write tech.abdulghani.airbar DebugStatusDump -bool true`, mirrors
-    /// `diagnostics()` to ~/Library/Logs/AirBar-status.json on every update.
+    /// With `defaults write tech.abdulghani.hawadaar DebugStatusDump -bool true`, mirrors
+    /// `diagnostics()` to ~/Library/Logs/Hawadaar-status.json on every update.
     private func writeDebugDump() {
         guard UserDefaults.standard.bool(forKey: "DebugStatusDump") else { return }
-        try? Data(diagnostics().utf8).write(to: ConnectionLog.directory.appending(path: "AirBar-status.json"))
+        try? Data(diagnostics().utf8).write(to: ConnectionLog.directory.appending(path: "Hawadaar-status.json"))
     }
 }
 
-/// Records when ACs drop off and come back, to ~/Library/Logs/AirBar.log.
+/// Records when ACs drop off and come back, to ~/Library/Logs/Hawadaar.log.
 enum ConnectionLog {
     static let directory = FileManager.default.homeDirectoryForCurrentUser.appending(path: "Library/Logs")
-    static let url = directory.appending(path: "AirBar.log")
+    static let url = directory.appending(path: "Hawadaar.log")
 
     static func write(_ message: String) {
         let formatter = ISO8601DateFormatter()

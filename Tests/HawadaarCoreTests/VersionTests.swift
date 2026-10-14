@@ -1,5 +1,5 @@
 import Testing
-@testable import AirBarCore
+@testable import HawadaarCore
 
 struct VersionTests {
     @Test func parsesTagsAndSuffixes() {

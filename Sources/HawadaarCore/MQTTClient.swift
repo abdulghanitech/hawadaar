@@ -13,7 +13,7 @@ public final class MQTTClient {
     private let host: String
     private let port: UInt16
     private let keepAlive: UInt16 = 60
-    private let queue = DispatchQueue(label: "AirBar.MQTT")
+    private let queue = DispatchQueue(label: "Hawadaar.MQTT")
     private var connection: NWConnection?
     private var decoder = MQTTPacket.Decoder()
     private var pingTimer: DispatchSourceTimer?

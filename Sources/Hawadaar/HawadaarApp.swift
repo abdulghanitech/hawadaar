@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct AirBarApp: App {
+struct HawadaarApp: App {
     @StateObject private var store = ACStore()
     @StateObject private var updates = UpdateChecker()
 
@@ -65,7 +65,7 @@ struct BrandHeader: View {
                 .resizable()
                 .frame(width: 44, height: 44)
             VStack(alignment: .leading, spacing: 1) {
-                Text("AirBar").font(.system(size: 20, weight: .semibold, design: .rounded))
+                Text("Hawadaar").font(.system(size: 20, weight: .semibold, design: .rounded))
                 Text(subtitle).font(.caption).foregroundStyle(Palette.secondary)
             }
         }
@@ -78,9 +78,17 @@ enum About {
     }
 
     static func show() {
-        let credits = NSAttributedString(
-            string: "Control your MirAIe air conditioner from the menu bar.\n\nIndependent project, not affiliated with Panasonic. MIT License.",
-            attributes: [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.secondaryLabelColor])
+        let body: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: 11), .foregroundColor: NSColor.secondaryLabelColor]
+        let credits = NSMutableAttributedString(
+            string: "ہوادار · airy, breezy\nControl your MirAIe air conditioner from the menu bar.\n\nMade by Abdul Ghani · ", attributes: body)
+        var link = body
+        link[.link] = URL(string: "https://abdulghani.tech")!
+        credits.append(NSAttributedString(string: "abdulghani.tech", attributes: link))
+        credits.append(NSAttributedString(
+            string: "\n\nIndependent project, not affiliated with Panasonic. MIT License.", attributes: body))
+        let centered = NSMutableParagraphStyle()
+        centered.alignment = .center
+        credits.addAttribute(.paragraphStyle, value: centered, range: NSRange(location: 0, length: credits.length))
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(options: [.credits: credits])
     }

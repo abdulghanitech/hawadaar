@@ -2,18 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AirBarRepository</key>
-	<string>abdulghanitech/airbar</string>
+	<key>HawadaarRepository</key>
+	<string>abdulghanitech/hawadaar</string>
 	<key>CFBundleDisplayName</key>
-	<string>AirBar</string>
+	<string>Hawadaar</string>
 	<key>CFBundleExecutable</key>
-	<string>AirBar</string>
+	<string>Hawadaar</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>tech.abdulghani.airbar</string>
+	<string>tech.abdulghani.hawadaar</string>
 	<key>CFBundleName</key>
-	<string>AirBar</string>
+	<string>Hawadaar</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

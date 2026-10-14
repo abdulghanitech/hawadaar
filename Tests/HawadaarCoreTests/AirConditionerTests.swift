@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import AirBarCore
+@testable import HawadaarCore
 
 struct AirConditionerTests {
     /// Payload fields as text, so string and number values compare uniformly.
