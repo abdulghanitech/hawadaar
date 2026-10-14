@@ -50,10 +50,13 @@ Your AC remote is never where you left it, and the MirAIe app is buried on your 
 ## Install
 
 1. Download **Hawadaar-x.y.z.zip** from the [latest release](https://github.com/abdulghanitech/hawadaar/releases/latest), unzip it and move **Hawadaar.app** to Applications.
-2. Hawadaar isn't notarized by Apple yet, so the first launch shows a warning. Right-click **Hawadaar.app → Open → Open**, or run:
-   ```sh
-   xattr -dr com.apple.quarantine /Applications/Hawadaar.app
-   ```
+2. Hawadaar isn't notarized by Apple yet, so the first launch says *"Apple could not verify Hawadaar"*. Click **Done**, then allow it once:
+   - **macOS 15 Sequoia and later:** open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to Hawadaar, then confirm.
+   - **macOS 14 Sonoma:** right-click **Hawadaar.app → Open → Open**.
+   - **Or in Terminal, on any version:**
+     ```sh
+     xattr -dr com.apple.quarantine /Applications/Hawadaar.app
+     ```
 3. Click the AC icon in the menu bar and sign in with the mobile number (or email) and password you use in the MirAIe app.
 
 Hawadaar checks for new versions once a day and shows an **Update** button when one is out.
