@@ -102,7 +102,7 @@ make test    # run the unit tests
 make zip     # universal (Apple Silicon + Intel) release zip in build/
 ```
 
-The MirAIe protocol code lives in the `HawadaarCore` library and the menu bar app in `Hawadaar`. [docs/PROTOCOL.md](docs/PROTOCOL.md) documents the endpoints, MQTT topics and command fields.
+The MirAIe protocol code lives in the `HawadaarCore` library and the menu bar app in `Hawadaar`. [docs/PROTOCOL.md](docs/PROTOCOL.md) documents the endpoints, MQTT topics and command fields. The write-up [Building Hawadaar](https://blog.abdulghani.tech/building-hawadaar-mac-menu-bar-app-panasonic-miraie-ac) covers the protocol, the Wi-Fi investigation and shipping outside the App Store.
 
 ## Credits
 
