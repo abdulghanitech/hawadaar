@@ -132,7 +132,7 @@ struct ControlView: View {
                 tileButton(.fan, title: "Fan speed", value: status.fan.title, icon: "fanblades")
                 tileButton(.airflow, title: "Airflow",
                            value: status.verticalSwing == 0 ? "Swing" : "L\(status.verticalSwing)",
-                           icon: "arrow.up.and.down.and.sparkles")
+                           icon: "arrow.up.and.down")
                 Button { store.send(.powerful(!status.powerful)) } label: {
                     TileLabel(title: "Powerful", value: status.powerful ? "On" : "Off", icon: "bolt",
                               highlighted: status.powerful)

@@ -4,29 +4,9 @@ import SwiftUI
 struct HawadaarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
+    // The menu bar item and its panel are AppKit (see StatusItemController); SwiftUI needs a scene.
     var body: some Scene {
-        MenuBarExtra {
-            RootView().environmentObject(appDelegate.store).environmentObject(appDelegate.updates)
-        } label: {
-            MenuBarLabel(store: appDelegate.store)
-                .task { appDelegate.updates.start() }
-        }
-        .menuBarExtraStyle(.window)
-    }
-}
-
-/// Menu bar item: the AC icon, plus the setpoint while the selected AC is running.
-struct MenuBarLabel: View {
-    @ObservedObject var store: ACStore
-
-    var body: some View {
-        let status = store.status
-        HStack(spacing: 3) {
-            Image(systemName: status.isOn ? "air.conditioner.horizontal.fill" : "air.conditioner.horizontal")
-            if store.phase == .ready && status.isOn {
-                Text("\(status.setpoint)°")
-            }
-        }
+        Settings { EmptyView() }
     }
 }
 

@@ -8,10 +8,13 @@ import SwiftUI
 final class AppDelegate: NSObject, NSApplicationDelegate {
     let store = ACStore()
     let updates = UpdateChecker()
+    private var statusItem: StatusItemController?
     private var welcomeWindow: NSWindow?
     private var controlWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        statusItem = StatusItemController(store: store, updates: updates)
+        updates.start()
         guard !UserDefaults.standard.bool(forKey: "welcomeShown") else { return }
         UserDefaults.standard.set(true, forKey: "welcomeShown")
         // Give the status item a moment to be placed before checking whether it's visible.
