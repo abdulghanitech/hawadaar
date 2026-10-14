@@ -179,13 +179,19 @@ struct ControlView: View {
                     .help(signal < -75 ? "Weak signal: the AC may drop off Wi-Fi" : "Signal the AC reports for its own Wi-Fi")
             }
             Spacer()
-            if let release = updates.available {
-                Button { NSWorkspace.shared.open(release.url) } label: {
+            if updates.installState == .installing {
+                HStack(spacing: 4) {
+                    ProgressView().controlSize(.mini)
+                    Text("Updating…")
+                }
+                .foregroundStyle(Palette.accent)
+            } else if let release = updates.available {
+                Button { updates.install() } label: {
                     Label("Update \(release.version.description)", systemImage: "arrow.down.circle.fill")
                         .foregroundStyle(Palette.accent)
                 }
                 .buttonStyle(.plain)
-                .help("A new version of Hawadaar is available")
+                .help("Install Hawadaar \(release.version.description) and restart")
             }
             Menu {
                 Toggle("Display Light", isOn: Binding(get: { status.display }, set: { store.send(.display($0)) }))
@@ -202,7 +208,8 @@ struct ControlView: View {
                 Divider()
                 Button("About Hawadaar \(About.version)") { About.show() }
                 if let release = updates.available {
-                    Button("Download Hawadaar \(release.version.description)…") { NSWorkspace.shared.open(release.url) }
+                    Button("Install Hawadaar \(release.version.description) and Restart") { updates.install() }
+                        .disabled(updates.installState == .installing)
                 } else {
                     Button("Check for Updates…") { Task { await updates.check(userInitiated: true) } }
                 }
