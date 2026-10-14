@@ -1,0 +1,24 @@
+name: Bug report
+description: Something isn't working
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: AirBar and macOS version
+      placeholder: AirBar 1.0.0, macOS 15.1
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: In AirBar, open ⋯ → Copy Diagnostics and paste here. It contains your ACs' status but no password or tokens.
+      render: json

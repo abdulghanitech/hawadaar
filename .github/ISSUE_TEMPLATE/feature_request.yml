@@ -1,0 +1,15 @@
+name: Feature request
+description: Suggest an idea for AirBar
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like AirBar to do?
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: AC model (if relevant)
+      description: Found on the sticker on the side of the indoor unit.
