@@ -1,6 +1,7 @@
 APP := build/Hawadaar.app
-# Sign with the "Hawadaar Release Signing" certificate when present, so builds keep the same identity
-# and the Keychain doesn't ask again after an update. Falls back to ad-hoc signing.
+# Sign with the "Hawadaar Release Signing" certificate when present, so every build carries the same
+# signing identity. Without a Developer ID, macOS still ties Keychain access to each build, so users see
+# one Keychain prompt after an update. Falls back to ad-hoc signing.
 SIGN_ID := $(or $(shell security find-identity -p codesigning 2>/dev/null | awk '/"Hawadaar Release Signing"/ {print $$2; exit}'),-)
 VERSION := $(shell /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Resources/Info.plist)
 

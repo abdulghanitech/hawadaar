@@ -2,15 +2,14 @@ import SwiftUI
 
 @main
 struct HawadaarApp: App {
-    @StateObject private var store = ACStore()
-    @StateObject private var updates = UpdateChecker()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
         MenuBarExtra {
-            RootView().environmentObject(store).environmentObject(updates)
+            RootView().environmentObject(appDelegate.store).environmentObject(appDelegate.updates)
         } label: {
-            MenuBarLabel(store: store)
-                .task { updates.start() }
+            MenuBarLabel(store: appDelegate.store)
+                .task { appDelegate.updates.start() }
         }
         .menuBarExtraStyle(.window)
     }
@@ -49,7 +48,8 @@ struct RootView: View {
             }
         }
         .frame(width: 340)
-        .background(Palette.background)
+        .background(Palette.background.ignoresSafeArea())
+        .ignoresSafeArea()
         .foregroundStyle(.white)
         .environment(\.colorScheme, .dark)
     }
