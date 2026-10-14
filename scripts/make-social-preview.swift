@@ -39,8 +39,8 @@ text("ہوادار", font: .systemFont(ofSize: 44, weight: .regular),
      color: NSColor(red: 1.0, green: 0.68, blue: 0.40, alpha: 1), at: NSPoint(x: 545, y: 318))
 let tagline = NSFont.systemFont(ofSize: 34, weight: .regular)
 let dim = NSColor(white: 1, alpha: 0.78)
-text("Control your MirAIe air conditioner", font: tagline, color: dim, at: NSPoint(x: 80, y: 232))
-text("from the macOS menu bar.", font: tagline, color: dim, at: NSPoint(x: 80, y: 188))
+text("Control your Panasonic MirAIe AC", font: tagline, color: dim, at: NSPoint(x: 80, y: 232))
+text("from your Mac's menu bar.", font: tagline, color: dim, at: NSPoint(x: 80, y: 188))
 text("Free & open source  ·  Native SwiftUI  ·  macOS 14+", font: .systemFont(ofSize: 22, weight: .medium),
      color: NSColor(red: 0.45, green: 0.68, blue: 1.0, alpha: 1), at: NSPoint(x: 80, y: 110))
 
